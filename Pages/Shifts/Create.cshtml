@@ -1,0 +1,47 @@
+﻿@page
+@model Office__Portal.Pages.Shifts.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Shift</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Shift.StaffID" class="control-label"></label>
+                <select asp-for="Shift.StaffID" class ="form-control" asp-items="ViewBag.StaffID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shift.DepartmentID" class="control-label"></label>
+                <select asp-for="Shift.DepartmentID" class ="form-control" asp-items="ViewBag.DepartmentID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shift.Date" class="control-label"></label>
+                <input asp-for="Shift.Date" class="form-control" />
+                <span asp-validation-for="Shift.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shift.Total_Hours" class="control-label"></label>
+                <input asp-for="Shift.Total_Hours" class="form-control" />
+                <span asp-validation-for="Shift.Total_Hours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
